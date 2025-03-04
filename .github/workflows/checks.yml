@@ -61,7 +61,7 @@ jobs:
       # 7. PostgreSQL 연결 테스트 (DB가 준비될 때까지 대기)
       - name: Wait for PostgreSQL
         run: |
-          until pg_isready -h localhost -p ${{ secrets.PORT }} -U ${{ secrets.USER }}; do
+          until pg_isready -h localhost -p ${{ secrets.DB_PORT }} -U ${{ secrets.DB_USER }}; do
             sleep 1
           done
       # 8. Django 마이그레이션 실행
