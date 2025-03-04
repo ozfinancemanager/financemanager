@@ -58,7 +58,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     class Meta:
         verbose_name = "사용자"
         verbose_name_plural = "사용자 목록"
-        swappable = "AUTH_USER_MODEL"
 
     def __str__(self) -> str:
         return self.email
