@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="git pull completed" />
+    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="stage1 branch">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1741056733458</updated>
-      <workItem from="1741056734521" duration="8883000" />
+      <workItem from="1741056734521" duration="11220000" />
     </task>
     <task id="LOCAL-00001" summary="completed stage one">
       <option name="closed" value="true" />
@@ -109,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741068799917</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="stage1 branch">
+      <option name="closed" value="true" />
+      <created>1741068940654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741068940654</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +130,7 @@
     <MESSAGE value="completed stage one" />
     <MESSAGE value="added gitmessage" />
     <MESSAGE value="git pull completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="git pull completed" />
+    <MESSAGE value="stage1 branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="stage1 branch" />
   </component>
 </project>
