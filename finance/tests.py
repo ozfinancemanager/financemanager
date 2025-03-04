@@ -46,7 +46,9 @@ class AccountModelTest(TestCase):
             self.account.user, self.user
         )  # account.user와 user가 맞는지 확인 => ForeignKey한 정보 일치한지 확인
         self.assertEqual(self.account.account_number, "1234567894561")  # 계좌번호가 맞는지 확인
-        expected_str = f"{self.account.account_type} - {self.account.account_number}"  # 예상 문자열 포맷이 일치한지 확인
+        expected_str = (
+            f"{self.account.account_type} - {self.account.account_number}"  # 예상 문자열 포맷이 일치한지 확인
+        )
         self.assertEqual(str(self.account), expected_str)
 
 
