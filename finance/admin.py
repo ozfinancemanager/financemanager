@@ -53,7 +53,7 @@ class CustomUserAdmin(admin.ModelAdmin):  # type: ignore
 
 
 # Account 모델에 대한 관리자 설정
-class CustomAccount(admin.ModelAdmin[Account]):
+class CustomAccount(admin.ModelAdmin):  # type: ignore
     # 페이지에 표시할 필드들 설정
     list_display = ("account_number", "bank_code", "account_type", "balance")
     # 하이퍼링크 설정
@@ -84,7 +84,7 @@ class CustomAccount(admin.ModelAdmin[Account]):
 
 
 # TransactionHistory 모델에 대한 관리자 설정
-class CustomTransaction(admin.ModelAdmin[TransactionHistory]):
+class CustomTransaction(admin.ModelAdmin):  # type: ignore
     # 페이지에 표시할 필드들 설정
     list_display = ("account", "transaction_amount", "after_balance")
     # 계좌번호로 검색가능
