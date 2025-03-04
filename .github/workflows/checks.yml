@@ -61,23 +61,24 @@ jobs:
       # 7. PostgreSQL 연결 테스트 (DB가 준비될 때까지 대기)
       - name: Wait for PostgreSQL
         run: |
-          until pg_isready -h localhost -p ${{ secrets.PG_PORT }} -U ${{ secrets.PG_USER }}; do
+          until pg_isready -h localhost -p 5432 -U ${{ secrets.PG_USER }}; do
             sleep 1
           done
-      - name: Check PostgreSQL Status
-        run: |
-          echo "Checking PostgreSQL container logs..."
-          docker logs $(docker ps -q --filter ancestor=postgres:14)
 
-      - name: Run Django Migration (Force Apply)
-        run: |
-          poetry run python manage.py migrate --fake-initial          
-
-#      # 8. Django 마이그레이션 실행
-#      - name: Run Django Migration
+#      - name: Check PostgreSQL Status
 #        run: |
+#          echo "Checking PostgreSQL container logs..."
+#          docker logs $(docker ps -q --filter ancestor=postgres:14)
+
+#      - name: Run Django Migration (Force Apply)
+#        run: |
+#          poetry run python manage.py migrate --fake-initial
+
+      # 8. Django 마이그레이션 실행
+      - name: Run Django Migration
+        run:
 #          poetry run python manage.py makemigrations
-#          poetry run python manage.py migrate
+          poetry run python manage.py migrate
       # 9. Django 테스트 실행 (도전 미션)
       - name: Test python project
         run: |
