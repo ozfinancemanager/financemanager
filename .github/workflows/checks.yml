@@ -67,7 +67,7 @@ jobs:
 
       # 8. Django 마이그레이션 실행
       - name: Run Django Migration
-        run:
+        run: |
           poetry run python manage.py makemigrations
           poetry run python manage.py migrate
       # 9. Django 테스트 실행 (도전 미션)
