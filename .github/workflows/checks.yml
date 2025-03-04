@@ -17,7 +17,7 @@ jobs:
       db:
         image: postgres:14
         ports:
-          - 5432:5432
+          - ${{ secrets.PG_PORT }}
         # Github Secrets에서 가져와 PostgreSQL 환경 변수 설정
         env:
           POSTGRES_USER: ${{ secrets.PG_USER }}
