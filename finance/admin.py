@@ -4,7 +4,7 @@ from finance.models import Account, CustomUser, TransactionHistory  # 모델 imp
 
 
 # CustomUser 모델에 대한 관리자 설정
-class CustomUserAdmin(admin.ModelAdmin[CustomUser]):
+class CustomUserAdmin(admin.ModelAdmin):  # type: ignore
     # 페이지에 표시할 필드들 설정
     list_display = ("email", "nickname", "name", "phone_number")
     # 하이퍼링크 설정
