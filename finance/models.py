@@ -28,6 +28,7 @@ class CustomUserManager(BaseUserManager[CustomUserType]):  # BaseUserManager에 
     def create_superuser(self, email: str, password: str, **extra_fields: Any) -> CustomUserType:
         # 일반 사용자 생성 후 슈퍼유저 플래그 설정
         user = self.create_user(email, password, **extra_fields)
+        user.is_active = True
         user.is_staff = True
         user.is_admin = True
         user.is_superuser = True
