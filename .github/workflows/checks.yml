@@ -65,11 +65,20 @@ jobs:
             sleep 3
           done
 
+      - name: Wait for DB
+        run: |
+          poetry run python manage.py wait_for_db
+
       # 8. Django 마이그레이션 실행
       - name: Run Django Migration
         run: |
           poetry run python manage.py makemigrations
           poetry run python manage.py migrate
+
+      - name: Run Django tests
+        run: |
+          poetry run python manage.py test
+
       # 9. Django 테스트 실행 (도전 미션)
       - name: Test python project
         run: |

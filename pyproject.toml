@@ -19,6 +19,7 @@ django-stubs = "^5.1.3"
 black = "^25.1.0"
 isort = "^6.0.1"
 mypy = "^1.15.0"
+types-psycopg2 = "^2.9.21.20250121"
 
 
 [tool.poetry.group.black.dependencies]
