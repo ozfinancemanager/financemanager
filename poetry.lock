@@ -560,6 +560,18 @@ files = [
 ]
 
 [[package]]
+name = "types-psycopg2"
+version = "2.9.21.20250121"
+description = "Typing stubs for psycopg2"
+optional = false
+python-versions = ">=3.9"
+groups = ["dev"]
+files = [
+    {file = "types_psycopg2-2.9.21.20250121-py3-none-any.whl", hash = "sha256:b890dc6f5a08b6433f0ff73a4ec9a834deedad3e914f2a4a6fd43df021f745f1"},
+    {file = "types_psycopg2-2.9.21.20250121.tar.gz", hash = "sha256:2b0e2cd0f3747af1ae25a7027898716d80209604770ef3cbf350fe055b9c349b"},
+]
+
+[[package]]
 name = "types-pyyaml"
 version = "6.0.12.20241230"
 description = "Typing stubs for PyYAML"
@@ -599,4 +611,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "d07898555335cf3f47be9c1877ddb7bb8958fa8520720ab77e85589e762def40"
+content-hash = "a9816ee39b65bb36a48ca096fd726341f2ff636d66cd049320423335c9cedf7e"
