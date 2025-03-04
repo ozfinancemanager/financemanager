@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="completed stage one">
-      <change afterPath="$PROJECT_DIR$/.gitmessage.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="git pull completed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,12 +20,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "rubyhae"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;rubyhae&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ozfinancemanager/financemanager.git&quot;,
@@ -86,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1741056733458</updated>
-      <workItem from="1741056734521" duration="8579000" />
+      <workItem from="1741056734521" duration="8883000" />
     </task>
     <task id="LOCAL-00001" summary="completed stage one">
       <option name="closed" value="true" />
@@ -96,7 +93,23 @@
       <option name="project" value="LOCAL" />
       <updated>1741068276739</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added gitmessage">
+      <option name="closed" value="true" />
+      <created>1741068514714</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741068514714</updated>
+    </task>
+    <task id="LOCAL-00003" summary="git pull completed">
+      <option name="closed" value="true" />
+      <created>1741068799917</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741068799917</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +117,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="completed stage one" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed stage one" />
+    <MESSAGE value="added gitmessage" />
+    <MESSAGE value="git pull completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="git pull completed" />
   </component>
 </project>
