@@ -65,19 +65,10 @@ jobs:
             sleep 1
           done
 
-#      - name: Check PostgreSQL Status
-#        run: |
-#          echo "Checking PostgreSQL container logs..."
-#          docker logs $(docker ps -q --filter ancestor=postgres:14)
-
-#      - name: Run Django Migration (Force Apply)
-#        run: |
-#          poetry run python manage.py migrate --fake-initial
-
       # 8. Django 마이그레이션 실행
       - name: Run Django Migration
         run:
-#          poetry run python manage.py makemigrations
+          poetry run python manage.py makemigrations finance
           poetry run python manage.py migrate
       # 9. Django 테스트 실행 (도전 미션)
       - name: Test python project
