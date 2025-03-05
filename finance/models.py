@@ -6,7 +6,8 @@ from django.contrib.auth.base_user import (  # BaseUserManager 임포트
 )
 from django.contrib.auth.models import PermissionsMixin  # PermissionsMixin 임포트
 from django.db import models  # Django 모델 임포트
-from .validator import validate_password # 비밀번호 유효성 검사 임포트
+
+from .validator import validate_password  # 비밀번호 유효성 검사 임포트
 
 # 전방 참조를 위한 타입 변수 선언 (CustomUser를 상속하는 타입을 지정)
 CustomUserType = TypeVar("CustomUserType", bound="CustomUser")
@@ -23,7 +24,7 @@ class CustomUserManager(BaseUserManager[CustomUserType]):  # BaseUserManager에 
         user: CustomUserType = self.model(email=email, **extra_fields)
         # 비밀번호 검사 후 저장
         if password:
-            validate_password(password)
+            validate_password(password)  # type: ignore
             user.set_password(password)
         user.save(using=self._db)
         return user
