@@ -14,7 +14,7 @@ from .models import CustomUser
 # Create your views here.
 
 
-def signup_view(request): # type: ignore
+def signup_view(request):  # type: ignore
     # 회원가입 처리 뷰 POST
     # is_active=FALSE로 생성하고, 인증 이메일 발송
     if request.method == "POST":
@@ -58,7 +58,7 @@ def signup_view(request): # type: ignore
 # 인증 부분은 거의 코드 복붙이라서 오류 있으시면 꼭 알려주십쇼
 # 여러분의 도움이 필요합니다
 # 구글링 + gpt의 도움으로 작성한겁니다
-def verify_email_view(request, uidb64, token): # type: ignore
+def verify_email_view(request, uidb64, token):  # type: ignore
     # 이메일 인증 링크를 통해 계정을 활성화하는 뷰
     # URL로부터 uidb64, token을 받아 유효성 검증
     # 검증 성공 시 user.is_active=True로 업데이트

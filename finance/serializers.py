@@ -18,6 +18,6 @@ class Meta:
     # set_password() 사용 => 비밀번호 암호화
 
 
-def create(self, validated_data): # type: ignore
+def create(self, validated_data):  # type: ignore
     user = CustomUser.objects.create_user(**validated_data)
     return user
