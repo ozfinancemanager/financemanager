@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.db import models
+from .validator import validate_password
 
 
 class CustomUserManager(BaseUserManager):
@@ -8,7 +9,9 @@ class CustomUserManager(BaseUserManager):
         if not email: raise ValueError('이메일은 필수 입력사항입니다.')
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        user.set_password(password)
+        if password:
+            validate_password(password)
+            user.set_password(password)
         user.save(using=self._db)
         return user
 
