@@ -5,6 +5,7 @@ from django.contrib.auth.base_user import (  # BaseUserManager 임포트
     BaseUserManager,
 )
 from django.contrib.auth.models import PermissionsMixin  # PermissionsMixin 임포트
+from django.contrib.auth.password_validation import validate_password
 from django.db import models  # Django 모델 임포트
 
 # 전방 참조를 위한 타입 변수 선언 (CustomUser를 상속하는 타입을 지정)
@@ -20,8 +21,10 @@ class CustomUserManager(BaseUserManager[CustomUserType]):  # BaseUserManager에 
         email = self.normalize_email(email)
         # 사용자 인스턴스 생성 (모델의 전방 참조 사용)
         user: CustomUserType = self.model(email=email, **extra_fields)
-        # 비밀번호 설정 및 저장
-        user.set_password(password)
+        # 비밀번호 검사 후 저장
+        if password:
+            validate_password(password)
+            user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -124,3 +127,57 @@ class TransactionHistory(models.Model):
 
     def __str__(self) -> str:
         return f"{self.deposit_withdrawal_type} - {self.transaction_amount} - {self.after_balance}"
+
+
+class Analysis(models.Model):
+    # 분석 대상
+    INCOME = "수입"
+    EXPENSE = "지출"
+    TARGET_CHOICES = [
+        (INCOME, "수입"),
+        (EXPENSE, "지출"),
+    ]
+    # 분석 기간
+    DAILY = "일간"
+    WEEKLY = "주간"
+    MONTHLY = "월간"
+    ANNUALLY = "연간"
+    PERIOD_CHOICES = [
+        (DAILY, "일간"),
+        (WEEKLY, "주간"),
+        (MONTHLY, "월간"),
+        (ANNUALLY, "연간"),
+    ]
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="analysis", verbose_name="analysis")
+    target = models.CharField("분석 대상", max_length=10, choices=TARGET_CHOICES)
+    period = models.CharField("분석 기간", max_length=10, choices=PERIOD_CHOICES)
+    start_date = models.DateField("시작 날짜")
+    end_date = models.DateField("종료 날짜")
+    description = models.TextField("설명", blank=True, null=True)
+    result_image = models.ImageField("결과 이미지", upload_to="analysis_images/", blank=True, null=True)
+    created_at = models.DateTimeField("생성일", auto_now_add=True)
+    updated_at = models.DateTimeField("수정일", auto_now=True)
+
+    class Meta:
+        verbose_name = "분석"
+        verbose_name_plural = "분석 목록"
+
+    def __str__(self) -> str:
+        return f"{self.user} - {self.target} - {self.period} {self.start_date} ~ {self.end_date}"
+
+
+class notifications(models.Model):
+    user = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="notifications", verbose_name="notifications"
+    )
+    message = models.TextField("메세지 내용")
+    is_read = models.BooleanField("읽음 여부", default=False)
+    created_at = models.DateTimeField("생성일", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "알림"
+        verbose_name_plural = "알림 목록"
+
+    def __str__(self) -> str:
+        read = "읽음" if self.is_read else "안읽음"
+        return f"{self.user} - {self.message} - {read}"
