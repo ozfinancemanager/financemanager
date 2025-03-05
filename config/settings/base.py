@@ -130,3 +130,16 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 이메일 백엔드 (개발 콘솔용) *수정 필요
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL: str = "admin@example.com"
+
+# 실제 발송 메일 예시 *수정 필요
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+##EMAIL_HOST = "smtp.example.com"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = "your_email@example.com"
+# EMAIL_HOST_PASSWORD = "your_email_password"
+# DEFAULT_FROM_EMAIL = "your_email@example.com"
