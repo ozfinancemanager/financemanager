@@ -124,3 +124,57 @@ class TransactionHistory(models.Model):
 
     def __str__(self) -> str:
         return f"{self.deposit_withdrawal_type} - {self.transaction_amount} - {self.after_balance}"
+
+
+class Analysis(models.Model):
+    # 분석 대상
+    INCOME = "수입"
+    EXPENSE = "지출"
+    TARGET_CHOICES = [
+        (INCOME, "수입"),
+        (EXPENSE, "지출"),
+    ]
+    # 분석 기간
+    DAILY = "일간"
+    WEEKLY = "주간"
+    MONTHLY = "월간"
+    ANNUALLY = "연간"
+    PERIOD_CHOICES = [
+        (DAILY, "일간"),
+        (WEEKLY, "주간"),
+        (MONTHLY, "월간"),
+        (ANNUALLY, "연간"),
+    ]
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="analysis", verbose_name="analysis")
+    target = models.CharField("분석 대상", max_length=10, choices=TARGET_CHOICES)
+    period = models.CharField("분석 기간", max_length=10, choices=PERIOD_CHOICES)
+    start_date = models.DateField("시작 날짜")
+    end_date = models.DateField("종료 날짜")
+    description = models.TextField("설명", blank=True, null=True)
+    result_image = models.ImageField("결과 이미지", upload_to="analysis_images/", blank=True, null=True)
+    created_at = models.DateTimeField("생성일", auto_now_add=True)
+    updated_at = models.DateTimeField("수정일", auto_now=True)
+
+    class Meta:
+        verbose_name = "분석"
+        verbose_name_plural = "분석 목록"
+
+    def __str__(self) -> str:
+        return f"{self.user} - {self.target} - {self.period} {self.start_date} ~ {self.end_date}"
+
+
+class notifications(models.Model):
+    user = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="notifications", verbose_name="notifications"
+    )
+    message = models.TextField("메세지 내용")
+    is_read = models.BooleanField("읽음 여부", default=False)
+    created_at = models.DateTimeField("생성일", auto_now_add=True)
+
+    class Meta:
+        verbose_name = "알림"
+        verbose_name_plural = "알림 목록"
+
+    def __str__(self) -> str:
+        read = "읽음" if self.is_read else "안읽음"
+        return f"{self.user} - {self.message} - {read}"
