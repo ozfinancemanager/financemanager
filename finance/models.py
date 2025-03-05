@@ -5,6 +5,7 @@ from django.contrib.auth.base_user import (  # BaseUserManager 임포트
     BaseUserManager,
 )
 from django.contrib.auth.models import PermissionsMixin  # PermissionsMixin 임포트
+from django.contrib.auth.password_validation import validate_password
 from django.db import models  # Django 모델 임포트
 
 # 전방 참조를 위한 타입 변수 선언 (CustomUser를 상속하는 타입을 지정)
@@ -20,8 +21,10 @@ class CustomUserManager(BaseUserManager[CustomUserType]):  # BaseUserManager에 
         email = self.normalize_email(email)
         # 사용자 인스턴스 생성 (모델의 전방 참조 사용)
         user: CustomUserType = self.model(email=email, **extra_fields)
-        # 비밀번호 설정 및 저장
-        user.set_password(password)
+        # 비밀번호 검사 후 저장
+        if password:
+            validate_password(password)
+            user.set_password(password)
         user.save(using=self._db)
         return user
 
