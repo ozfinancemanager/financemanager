@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from accounts.views import (
     LoginAPIView,
@@ -34,4 +35,5 @@ urlpatterns = [
     path(
         "profile/", UserProfileAPIView.as_view(), name="user-profile"
     ),  # 인증된 사용자가 자신의 프로필을 확인, 수정, 삭제할 수 있는 URL 등록
+    path("api/", include("finance.urls")),
 ]
