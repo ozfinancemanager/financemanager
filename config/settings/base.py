@@ -88,11 +88,11 @@ DATABASES = {
         "PASSWORD": "1234",
         "HOST": "localhost",
         "PORT": "5432",
-            'OPTIONS': {
-            'client_encoding': 'UTF8',
-            },
-        }
+        "OPTIONS": {
+            "client_encoding": "UTF8",
+        },
     }
+}
 
 AUTH_USER_MODEL = "finance.CustomUser"
 
