@@ -1,23 +1,23 @@
 from rest_framework import serializers
+from .models import TransactionHistory
 
-from .models import CustomUser
-
-
-class RegisterSerializer(serializers.ModelSerializer):
-    # 클라이언트로부터 비밀번호를 입력받음
-    # write_only로 처리하여 응답에 포함x
-    password = serializers.CharField(write_only=True, required=True, style={"input_type": "password"})
-
-
-class Meta:
-    model = CustomUser
-    # 회원가입 시 필요한 필드: 이메일, 전화번호, 비밀번호, 닉네임, 이름
-    fields = ("email", "phone_number", "password", "nickname", "name")
-
-    # cumtomuser 매니저 create_user()호출
-    # set_password() 사용 => 비밀번호 암호화
-
-
-def create(self, validated_data):  # type: ignore
-    user = CustomUser.objects.create_user(**validated_data)
-    return user
+class TransactionHistorySerializer(serializers.ModelSerializer):
+    # 계좌 번호 (읽기 전용)
+    account_number = serializers.CharField(source='account.account_number', read_only=True)
+    # 은행 코드 (읽기 전용)
+    bank_code = serializers.CharField(source='account.bank_code', read_only=True)
+    # 입출금 타입과 거래 타입의 표시 이름 (읽기 전용)
+    deposit_withdrawal_type_display = serializers.CharField(
+        source='get_deposit_withdrawal_type_display', read_only=True)
+    transaction_type_display = serializers.CharField(
+        source='get_transaction_type_display', read_only=True)
+    
+    class Meta:
+        model = TransactionHistory
+        fields = [
+            'id', 'account', 'account_number', 'bank_code', 
+            'transaction_amount', 'after_balance', 
+            'transaction_detail', 'deposit_withdrawal_type', 'deposit_withdrawal_type_display',
+            'transaction_type', 'transaction_type_display', 'transaction_date'
+        ]
+        read_only_fields = ['id', 'after_balance', 'transaction_date']
