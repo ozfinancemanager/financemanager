@@ -7,9 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import Account, TransactionHistory
-from .serializers import TransactionHistorySerializer
-
-from .serializers import AccountSerializer
+from .serializers import AccountSerializer, TransactionHistorySerializer
 
 
 # CBV로 작성
@@ -187,6 +185,7 @@ class TransactionHistoryDetail(APIView):
         # 거래내역 삭제
         transaction.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 # Account생성 API
 class AccountListCreateView(APIView):

@@ -1,9 +1,6 @@
 from rest_framework import serializers
 
-from .models import TransactionHistory
-
-from .models import Account
-
+from .models import Account, TransactionHistory
 
 
 # 거래 내역 시리얼라이저
@@ -37,6 +34,7 @@ class TransactionHistorySerializer(serializers.ModelSerializer):
             "transaction_date",
         ]
         read_only_fields = ["id", "after_balance", "transaction_date"]
+
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
