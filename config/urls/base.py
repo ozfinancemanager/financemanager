@@ -15,12 +15,23 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
-from finance.views import signup_view, verify_email_view
+from accounts.views import (
+    LoginAPIView,
+    LogoutAPIView,
+    RegisterAPIView,
+    UserProfileAPIView,
+    VerifyEmailAPIView,
+)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("signup/", signup_view, name="signup"),  # 회원가입 API
-    path("verify/<uidb64>/<token>/", verify_email_view, name="verify_email"),  # 이메일 인증 API
+    path("register/", RegisterAPIView.as_view(), name="register"),  # 회원가입 URL 패턴
+    path("login/", LoginAPIView.as_view(), name="login"),  # 로그인 URL 패턴
+    path("logout/", LogoutAPIView.as_view(), name="logout"),  # 로그아웃 URL 패턴
+    path("verify-email/", VerifyEmailAPIView.as_view(), name="verify-email"),  # 이메일 인증 URL 패턴
+    path(
+        "profile/", UserProfileAPIView.as_view(), name="user-profile"
+    ),  # 인증된 사용자가 자신의 프로필을 확인, 수정, 삭제할 수 있는 URL 등록
 ]

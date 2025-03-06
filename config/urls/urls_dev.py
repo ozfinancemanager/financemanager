@@ -3,8 +3,6 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view  # type: ignore
 from rest_framework import permissions
 
-from finance.views import signup_view, verify_email_view
-
 from .base import urlpatterns
 
 schema_view = get_schema_view(

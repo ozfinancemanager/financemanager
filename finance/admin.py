@@ -1,6 +1,12 @@
 from django.contrib import admin  # Django의 관리자(admin) 관련 모듈 import
 
-from finance.models import Account, CustomUser, TransactionHistory  # 모델 import
+from finance.models import (  # 모델 import
+    Account,
+    Analysis,
+    CustomUser,
+    TransactionHistory,
+    notifications,
+)
 
 
 # CustomUser 모델에 대한 관리자 설정
@@ -101,7 +107,7 @@ class CustomTransaction(admin.ModelAdmin):  # type: ignore
         (
             "계좌 정보",
             {
-                "fields": ("account", "transaction_amount", "after_balance"),
+                "fields": ("account", "transaction_amount"),
             },
         ),
         (
@@ -120,7 +126,34 @@ class CustomTransaction(admin.ModelAdmin):  # type: ignore
     readonly_fields = ("transaction_date",)  # 읽기 전용
 
 
+class AnalysisAdmin(admin.ModelAdmin):
+    list_display = ("user", "target", "period", "start_date", "end_date")
+    list_filter = ("target", "period", "created_at")
+    search_fields = ("user__email", "description")
+    readonly_fields = ("created_at", "updated_at")
+    fieldsets = (
+        ("분석대상", {"fields": ("user", "target", "period")}),
+        ("기간", {"fields": ("start_date", "end_date")}),
+        ("상세 정보", {"fields": ("description", "result_image")}),
+        ("날짜", {"fields": ("created_at", "updated_at")}),
+    )
+
+
+class NotificationsAdmin(admin.ModelAdmin):
+    list_display = ("user", "message", "is_read", "created_at")
+    list_filter = ("is_read", "created_at")
+    search_fields = ("user__email", "message")
+    readonly_fields = ("created_at",)
+    fieldsets = (
+        ("사용자", {"fields": ("user", "message")}),
+        ("상태", {"fields": ("is_read",)}),
+        ("생성일", {"fields": ("created_at",)}),
+    )
+
+
 # 관리자 사이트에 모델과 관리자 설정 등록
 admin.site.register(CustomUser, CustomUserAdmin)
 admin.site.register(Account, CustomAccount)
 admin.site.register(TransactionHistory, CustomTransaction)
+admin.site.register(Analysis, AnalysisAdmin)
+admin.site.register(notifications, NotificationsAdmin)
