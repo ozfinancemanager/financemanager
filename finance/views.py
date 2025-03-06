@@ -108,12 +108,7 @@ class TransactionHistoryDetail(APIView):
         serializer = TransactionHistorySerializer(transaction)
         return Response(serializer.data)
 
-    def put(self, request, pk):
-        """
-        거래 내역 수정
-
-        기존 거래 취소 후 새 거래 적용
-        """
+    def patch(self, request, pk):
         transaction = self.get_object(pk, request.user)
         account = transaction.account
 
@@ -144,7 +139,7 @@ class TransactionHistoryDetail(APIView):
             return Response({"error": "잔액이 부족합니다."}, status=status.HTTP_400_BAD_REQUEST)
 
         # 직렬화 및 저장 (모델의 save 메서드에서 새 거래 적용)
-        serializer = TransactionHistorySerializer(transaction, data=data)
+        serializer = TransactionHistorySerializer(transaction, data=data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -157,14 +152,6 @@ class TransactionHistoryDetail(APIView):
         account.save()
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def patch(self, request, pk):
-        """
-        거래 내역 부분 수정
-
-        put 메서드와 동일하게 처리 (전체 수정과 동일)
-        """
-        return self.put(request, pk)
 
     def delete(self, request, pk):
         """
@@ -184,7 +171,7 @@ class TransactionHistoryDetail(APIView):
 
         # 거래내역 삭제
         transaction.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response("message : 거래 내역이 삭제되었습니다.", status=status.HTTP_204_NO_CONTENT)
 
 
 # Account생성 API
