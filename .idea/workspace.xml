@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="completed stage one">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77f52a3d-da9d-4e8b-aa4f-8e5829907590.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77f52a3d-da9d-4e8b-aa4f-8e5829907590.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/financemanager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/financemanager.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.python-version" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls/urls_dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls/urls_dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/finance/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/finance/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +82,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/mac/Desktop/django_mini_project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -114,6 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1741056733458</updated>
       <workItem from="1741056734521" duration="8579000" />
+      <workItem from="1741166856409" duration="1691000" />
     </task>
     <task id="LOCAL-00001" summary="completed stage one">
       <option name="closed" value="true" />
@@ -142,7 +153,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="completed stage one" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed stage one" />
+    <MESSAGE value="readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

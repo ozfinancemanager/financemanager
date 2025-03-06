@@ -15,8 +15,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from finance.views import signup_view, verify_email_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("signup/", signup_view, name="signup"),  # 회원가입 API
+    path("verify/<uidb64>/<token>/", verify_email_view, name="verify_email"),  # 이메일 인증 API
 ]

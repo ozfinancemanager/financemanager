@@ -3,7 +3,7 @@ from rest_framework import serializers
 from .models import CustomUser
 
 
-class RegisterSerializer(serializers.ModelSerializer):
+class RegisterSerializer(serializers.ModelSerializer):  # type: ignore
     # 클라이언트로부터 비밀번호를 입력받음
     # write_only로 처리하여 응답에 포함x
     password = serializers.CharField(write_only=True, required=True, style={"input_type": "password"})

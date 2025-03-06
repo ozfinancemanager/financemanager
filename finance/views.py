@@ -45,7 +45,7 @@ def signup_view(request):  # type: ignore
     send_mail(
         subject="회원가입 인증을 완료해주세요",
         message=f"아래 링크를 클릭하여 인증을 완료하세요:\n{verify_url}",
-        from_email=settings.DEFAULT_FROM_EMAIL,  # settings.py에서 설정
+        from_email=settings.DEFAULT_FROM_EMAIL,  # type: ignore
         recipient_list=[email],
         fail_silently=False,
     )
