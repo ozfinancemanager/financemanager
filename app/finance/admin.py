@@ -1,6 +1,6 @@
 from django.contrib import admin  # Django의 관리자(admin) 관련 모듈 import
 
-from finance.models import (  # 모델 import
+from .models import (  # 모델 import
     Account,
     Analysis,
     CustomUser,

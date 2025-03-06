@@ -1,8 +1,7 @@
 from django.contrib.auth import get_user_model
-from django.core.signing import BadSignature, SignatureExpired, TimestampSigner
 from rest_framework import serializers
 
-from accounts.email import send_verification_email
+from app.accounts.email import send_verification_email
 
 User = get_user_model()
 

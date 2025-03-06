@@ -14,6 +14,10 @@ psycopg2-binary = "^2.9.10"
 django-environ = "^0.12.0"
 djangorestframework-simplejwt = ">=5.5.0,<6.0.0"
 django-filter = "^25.1"
+django-storages = "^1.14.5"
+boto3 = "^1.37.7"
+load-dotenv = "^0.1.0"
+python-dotenv = "^1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 drf-yasg = "^1.20"

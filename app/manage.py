@@ -6,6 +6,9 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    PROJECT_ROOT = os.path.dirname(BASE_DIR)  # 상위 디렉토리를 가리킵니다
+    sys.path.append(PROJECT_ROOT)
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.dev")
     try:
         from django.core.management import execute_from_command_line
