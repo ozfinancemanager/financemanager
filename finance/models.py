@@ -40,7 +40,7 @@ class CustomUserManager(BaseUserManager[CustomUserType]):
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
-    email = models.EmailField("이메일", max_length=20, unique=True)
+    email = models.EmailField("이메일", max_length=50, unique=True)
     nickname = models.CharField("닉네임", max_length=20)
     name = models.CharField("이름", max_length=10)
     phone_number = models.CharField("전화번호", max_length=20, unique=True)
