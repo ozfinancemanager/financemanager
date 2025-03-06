@@ -3,6 +3,7 @@
 import os
 import sys
 
+
 def main():
     """Run administrative tasks."""
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
