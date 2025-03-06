@@ -62,7 +62,6 @@
 #         )
 #
 #         # 로그인 LoginAPI테스트
-#         # -------------------------------------------------
 #         login_data = {
 #             "email": self.test_email,  # LoginSerializer/뷰 로직에 따라 username이 필요할 수도 있음
 #             "password": self.test_password,
@@ -77,7 +76,6 @@
 #         refresh_token = response.data["refresh"]  # 로그아웃 시 필요한 refresh 토큰
 #
 #         # 로그아웃 LogoutAPI 테스트
-#         # -------------------------------------------------
 #         logout_data = {"refresh": refresh_token}
 #         response = self.client.post(self.logout_url, logout_data, format="json")
 #         self.assertEqual(response.status_code, status.HTTP_205_RESET_CONTENT)
@@ -95,21 +93,18 @@
 #         self.client.credentials(HTTP_AUTHORIZATION=f"Bearer {access_token}")
 #
 #         # 프로필 조회
-#         # -------------------------------------------------
 #         response = self.client.get(self.profile_url)
 #         self.assertEqual(response.status_code, status.HTTP_200_OK)
 #         self.assertIn("email", response.data)
 #         self.assertEqual(response.data["email"], self.test_email)
 #
 #         # 프로필 수정
-#         # -------------------------------------------------
 #         update_data = {"nickname": "NewNickName"}  # 실제 ProfileSerializer에서 허용하는 필드를 사용해야 함
 #         response = self.client.patch(self.profile_url, update_data, format="json")
 #         self.assertEqual(response.status_code, status.HTTP_200_OK)
 #         self.assertEqual(response.data.get("nickname"), "NewNickName")
 #
-#         # 3) 회원탈퇴 (DELETE)
-#         # -------------------------------------------------
+#         # 회원탈퇴
 #         response = self.client.delete(self.profile_url)
 #         self.assertEqual(response.status_code, status.HTTP_200_OK)
 #
