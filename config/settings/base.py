@@ -157,9 +157,9 @@ EMAIL_HOST = "smtp.naver.com"  # 네이버 SMTP 서버
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 # os.environ.get -> 환경변수에서 값을 우선 가져온 후 없으면 뒤에 있는 값
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "mshg_@naver.com")  # 네이버 아이디@naver.com
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "ebiella@naver.com")  # 네이버 아이디@naver.com
 EMAIL_HOST_PASSWORD = os.environ.get(
     "EMAIL_HOST_PASSWORD", "*********"
 )  # 네이버 비밀번호  -> 깃허브 시크릿 EMAIL_HOST_PASSWORD / 비밀번호 세팅
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "mshg_@naver.com")  # 기본 발신자 이메일 주소
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "ebiella@naver.com")  # 기본 발신자 이메일 주소
 SITE_URL = "http://localhost:8000"  # 나중에 도메인으로 변경

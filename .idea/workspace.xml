@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="completed stage one">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/77f52a3d-da9d-4e8b-aa4f-8e5829907590.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/77f52a3d-da9d-4e8b-aa4f-8e5829907590.xml" afterDir="false" />
-    </list>
+    <list default="true" id="4f84859e-dd8e-4b31-ac3b-e238a62efae4" name="Changes" comment="added finance views" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +71,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "develop",
     "last_opened_file_path": "/Users/mac/Desktop/django_mini_project",
     "node.js.detected.package.eslint": "true",
@@ -114,6 +113,7 @@
       <option name="presentableId" value="Default" />
       <updated>1741056733458</updated>
       <workItem from="1741056734521" duration="8579000" />
+      <workItem from="1741166856409" duration="9122000" />
     </task>
     <task id="LOCAL-00001" summary="completed stage one">
       <option name="closed" value="true" />
@@ -123,7 +123,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741068276739</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=".">
+      <option name="closed" value="true" />
+      <created>1741224108749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741224108749</updated>
+    </task>
+    <task id="LOCAL-00003" summary="..">
+      <option name="closed" value="true" />
+      <created>1741224113568</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741224113568</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added finance views">
+      <option name="closed" value="true" />
+      <created>1741237280045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741237280045</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,6 +166,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="completed stage one" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed stage one" />
+    <MESSAGE value="readme update" />
+    <MESSAGE value="." />
+    <MESSAGE value=".." />
+    <MESSAGE value="added finance views" />
+    <option name="LAST_COMMIT_MESSAGE" value="added finance views" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/finance/models.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
