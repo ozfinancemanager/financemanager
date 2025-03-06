@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,9 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
     "drf_yasg",
     "finance",
     "core",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -129,17 +134,32 @@ STATIC_URL = "/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+}
+
+SIMPLE_JWT = {  # 심플 JWT 세팅
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),  # 액세스토큰 시간
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),  # 리프레시토큰 시간
+    "ROTATE_REFRESH_TOKENS": False,
+    # refresh 토큰 재발급 여부 설정  -> True 설정시 refrsh token 제출 시 새 엑세스 토큰 + 새 리프레쉬 토큰 반환
+    "BLACKLIST_AFTER_ROTATION": True,  # 토큰 사용 후 블랙리스트 적용
+    # 사용된 리프레쉬 토큰 블랙리스트 추가
+    "AUTH_HEADER_TYPES": ("Bearer",),  # 인증 헤더에 사용할 토큰 타입 지정
+}
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # 이메일 백엔드 (개발 콘솔용) *수정 필요
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL: str = "admin@example.com"
 
-# 실제 발송 메일 예시 *수정 필요
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-##EMAIL_HOST = "smtp.example.com"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = "your_email@example.com"
-# EMAIL_HOST_PASSWORD = "your_email_password"
-# DEFAULT_FROM_EMAIL = "your_email@example.com"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"  # SMTP 백엔드 사용
+EMAIL_HOST = "smtp.naver.com"  # 네이버 SMTP 서버
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+# os.environ.get -> 환경변수에서 값을 우선 가져온 후 없으면 뒤에 있는 값
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "mshg_@naver.com")  # 네이버 아이디@naver.com
+EMAIL_HOST_PASSWORD = os.environ.get(
+    "EMAIL_HOST_PASSWORD", "*********"
+)  # 네이버 비밀번호  -> 깃허브 시크릿 EMAIL_HOST_PASSWORD / 비밀번호 세팅
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "mshg_@naver.com")  # 기본 발신자 이메일 주소
+SITE_URL = "http://localhost:8000"  # 나중에 도메인으로 변경
