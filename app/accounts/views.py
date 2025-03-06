@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from accounts.serializers import ProfileSerializer, RegisterSerializer
+from app.accounts.serializers import ProfileSerializer, RegisterSerializer
 
 User = get_user_model()
 

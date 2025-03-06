@@ -3,7 +3,7 @@ from typing import Any, Type, cast
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 
-from finance.models import (
+from app.finance import (
     Account,
     Analysis,
     CustomUser,
