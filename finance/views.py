@@ -1,12 +1,11 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
 
 from finance.models import Account
 from finance.serializers import AccountSerializer
-
 
 
 # Account생성 API
@@ -53,6 +52,7 @@ class AccountDetailAPIView(APIView):
 
         serializer = AccountSerializer(account)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 # 사용자가 본인 계좌를 삭제할 수 있게 해주는 API
 class AccountDeleteView(APIView):
